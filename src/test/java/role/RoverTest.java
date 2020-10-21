@@ -1,5 +1,6 @@
 package role;
 
+import helper.RoverHelper;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -85,16 +86,49 @@ public class RoverTest {
 
     private void moveTo0_1_S(Rover rover) {
         rover.move(1);
-        rover.turn(Orientation.LEFT);
-        rover.turn(Orientation.LEFT);
+        new RoverHelper().turnBack(rover);
     }
 
     @Test
-    public void 后退() {
+    public void 后退_朝北() {
         Rover rover = new Rover();
         rover.move(1);
         rover.move(1);
+
         rover.move(-1);
+
         assertThat(rover.getPosition()).isEqualTo("0,1,N");
     }
+
+    @Test
+    public void 后退_朝南() {
+        Rover rover = new Rover();
+        RoverHelper.turnBack(rover);
+
+        rover.move(-1);
+
+        assertThat(rover.getPosition()).isEqualTo("0,1,S");
+    }
+
+    @Test
+    public void 后退_朝西() {
+        Rover rover = new Rover();
+        rover.turn(Orientation.LEFT);
+
+        rover.move(-1);
+
+        assertThat(rover.getPosition()).isEqualTo("1,0,W");
+    }
+
+    @Test
+    public void 后退_朝东() {
+        Rover rover = new Rover();
+        rover.turn(Orientation.RIGHT);
+        rover.move(1);
+
+        rover.move(-1);
+
+        assertThat(rover.getPosition()).isEqualTo("0,0,E");
+    }
+
 }
