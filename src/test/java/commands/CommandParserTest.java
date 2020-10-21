@@ -25,7 +25,9 @@ public class CommandParserTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {"F", MoveForwardCommand.class},
-                {"B", MoveBackCommand.class}
+                {"B", MoveBackCommand.class},
+                {"L", TurnLeftCommand.class},
+                {"R", TurnRightCommand.class},
         });
     }
 

@@ -10,12 +10,15 @@ public class CommandParser {
     }
 
     private static Command getCommand(String commandsInString) {
-        Command command;
-        if (commandsInString.equals("F")) {
-            command = new MoveForwardCommand();
-        } else {
-            command = new MoveBackCommand();
+        switch (commandsInString) {
+            case "F":
+                return new MoveForwardCommand();
+            case "L":
+                return new TurnLeftCommand();
+            case "R":
+                return new TurnRightCommand();
+            default:
+                return new MoveBackCommand();
         }
-        return command;
     }
 }
