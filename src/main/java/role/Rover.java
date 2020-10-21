@@ -17,15 +17,18 @@ public class Rover {
             this.x = this.x - offset;
             return;
         }
+
         if (this.direction.equals("E")) {
             this.x = this.x + offset;
             return;
         }
+
         if (this.direction.equals("N")) {
             this.y = this.y + offset;
-        } else {
-            this.y = this.y - offset;
+            return;
         }
+
+        this.y = this.y - offset;
     }
 
     public void turn(Orientation orientation) {
