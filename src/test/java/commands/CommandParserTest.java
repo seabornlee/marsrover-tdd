@@ -38,4 +38,14 @@ public class CommandParserTest {
         assertThat(commands.get(0)).isInstanceOf(classOfCommand);
     }
 
+    @Test
+    public void 解析多条命令() {
+        List<Command> commands = CommandParser.parse("FLBR");
+        assertThat(commands).hasSize(4);
+        assertThat(commands.get(0)).isInstanceOf(MoveForwardCommand.class);
+        assertThat(commands.get(1)).isInstanceOf(TurnLeftCommand.class);
+        assertThat(commands.get(2)).isInstanceOf(MoveBackCommand.class);
+        assertThat(commands.get(3)).isInstanceOf(TurnRightCommand.class);
+    }
+
 }

@@ -6,11 +6,7 @@ public class Rover {
     private String orientation = "N";
 
     public String getPosition() {
-        return this.x +
-                "," +
-                y +
-                "," +
-                this.orientation;
+        return this.x + "," + y + "," + this.orientation;
     }
 
     public void move(int offset) {

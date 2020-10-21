@@ -1,12 +1,15 @@
 package commands;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.Collections.singletonList;
 
 public class CommandParser {
     public static List<Command> parse(String commandsInString) {
-        return singletonList(getCommand(commandsInString));
+        List<Command> commands = new ArrayList<>();
+        for (int i = 0; i < commandsInString.length(); i++) {
+            commands.add(getCommand(String.valueOf(commandsInString.charAt(i))));
+        }
+        return commands;
     }
 
     private static Command getCommand(String commandsInString) {
