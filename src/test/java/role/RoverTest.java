@@ -12,4 +12,36 @@ public class RoverTest {
         String position = rover.getPosition();
         assertThat(position).isEqualTo("0,0,N");
     }
+
+    @Test
+    public void 右转() {
+        Rover rover = new Rover();
+        rover.turn(Orientation.RIGHT);
+        assertThat(rover.getPosition()).isEqualTo("0,0,E");
+        rover.turn(Orientation.RIGHT);
+        assertThat(rover.getPosition()).isEqualTo("0,0,S");
+    }
+
+    @Test
+    public void 左转() {
+        Rover rover = new Rover();
+        rover.turn(Orientation.LEFT);
+        assertThat(rover.getPosition()).isEqualTo("0,0,W");
+    }
+
+    @Test
+    public void 前进() {
+        Rover rover = new Rover();
+        rover.move(1);
+        assertThat(rover.getPosition()).isEqualTo("0,1,N");
+    }
+
+    @Test
+    public void 后退() {
+        Rover rover = new Rover();
+        rover.move(1);
+        rover.move(1);
+        rover.move(-1);
+        assertThat(rover.getPosition()).isEqualTo("0,1,N");
+    }
 }
