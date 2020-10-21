@@ -13,7 +13,19 @@ public class Rover {
     }
 
     public void move(int offset) {
-        this.y = this.y + offset;
+        if (this.direction.equals("W")) {
+            this.x = this.x - offset;
+            return;
+        }
+        if (this.direction.equals("E")) {
+            this.x = this.x + offset;
+            return;
+        }
+        if (this.direction.equals("N")) {
+            this.y = this.y + offset;
+        } else {
+            this.y = this.y - offset;
+        }
     }
 
     public void turn(Orientation orientation) {
