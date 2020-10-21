@@ -3,6 +3,7 @@ package role;
 import static role.Orientation.LEFT;
 
 public class Rover {
+    private static final String NESW = "NESW";
     private int x = 0;
     private int y = 0;
     private String direction = "N";
@@ -16,16 +17,8 @@ public class Rover {
     }
 
     public void turn(Orientation orientation) {
-        if (orientation == LEFT) {
-            if (this.direction.equals("N")) {
-                this.direction = "W";
-            }
-        } else {
-            if (this.direction.equals("N")) {
-                this.direction = "E";
-            } else if (this.direction.equals("E")) {
-                this.direction = "S";
-            }
-        }
+        int offset = orientation == LEFT ? -1 : 1;
+        int indexOfNewDirection = NESW.indexOf(this.direction) + offset;
+        this.direction = String.valueOf(NESW.charAt((indexOfNewDirection + NESW.length()) % NESW.length()));
     }
 }

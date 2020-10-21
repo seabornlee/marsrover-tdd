@@ -20,6 +20,10 @@ public class RoverTest {
         assertThat(rover.getPosition()).isEqualTo("0,0,E");
         rover.turn(Orientation.RIGHT);
         assertThat(rover.getPosition()).isEqualTo("0,0,S");
+        rover.turn(Orientation.RIGHT);
+        assertThat(rover.getPosition()).isEqualTo("0,0,W");
+        rover.turn(Orientation.RIGHT);
+        assertThat(rover.getPosition()).isEqualTo("0,0,N");
     }
 
     @Test
@@ -27,6 +31,12 @@ public class RoverTest {
         Rover rover = new Rover();
         rover.turn(Orientation.LEFT);
         assertThat(rover.getPosition()).isEqualTo("0,0,W");
+        rover.turn(Orientation.LEFT);
+        assertThat(rover.getPosition()).isEqualTo("0,0,S");
+        rover.turn(Orientation.LEFT);
+        assertThat(rover.getPosition()).isEqualTo("0,0,E");
+        rover.turn(Orientation.LEFT);
+        assertThat(rover.getPosition()).isEqualTo("0,0,N");
     }
 
     @Test
