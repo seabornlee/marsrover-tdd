@@ -2,8 +2,6 @@ package commands;
 
 import role.Rover;
 
-public class Command {
-    public void execute(Rover rover) {
-
-    }
+public abstract class Command {
+    public abstract void execute(Rover rover);
 }

@@ -1,7 +1,6 @@
 import commands.Command;
 import commands.CommandParser;
 import role.Commander;
-import role.Rover;
 import ui.UI;
 
 import java.util.List;

@@ -1,7 +1,23 @@
 package role;
 
 public class Rover {
+    private int x = 0;
+    private int y = 0;
+    private String orientation = "N";
+
     public String getPosition() {
-        return "0,1,N";
+        return this.x +
+                "," +
+                y +
+                "," +
+                this.orientation;
+    }
+
+    public void move(int offset) {
+        this.y++;
+    }
+
+    public void turn(Orientation orientation) {
+        this.orientation = "W";
     }
 }
