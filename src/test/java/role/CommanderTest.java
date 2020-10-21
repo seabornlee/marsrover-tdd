@@ -1,9 +1,6 @@
 package role;
 
-import commands.Command;
-import commands.MoveBackCommand;
-import commands.MoveForwardCommand;
-import commands.TurnLeftCommand;
+import commands.*;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -32,5 +29,12 @@ public class CommanderTest {
         Commander commander = new Commander();
         String position = commander.send(Arrays.asList(new MoveForwardCommand(), new MoveBackCommand()));
         assertThat(position).isEqualTo("0,0,N");
+    }
+
+    @Test
+    public void 发送指令_右转() {
+        Commander commander = new Commander();
+        String position = commander.send(Arrays.asList(new TurnRightCommand()));
+        assertThat(position).isEqualTo("0,0,E");
     }
 }

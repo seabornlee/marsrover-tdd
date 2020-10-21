@@ -1,5 +1,7 @@
 package role;
 
+import static role.Orientation.LEFT;
+
 public class Rover {
     private int x = 0;
     private int y = 0;
@@ -14,6 +16,10 @@ public class Rover {
     }
 
     public void turn(Orientation orientation) {
-        this.orientation = "W";
+        if (orientation == LEFT) {
+            this.orientation = "W";
+        } else {
+            this.orientation = "E";
+        }
     }
 }

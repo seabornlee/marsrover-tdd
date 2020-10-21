@@ -1,5 +1,5 @@
 package role;
 
 public enum Orientation {
-    LEFT
+    RIGHT, LEFT
 }
