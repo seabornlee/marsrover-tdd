@@ -5,10 +5,10 @@ import static role.Orientation.LEFT;
 public class Rover {
     private int x = 0;
     private int y = 0;
-    private String orientation = "N";
+    private String direction = "N";
 
     public String getPosition() {
-        return this.x + "," + y + "," + this.orientation;
+        return this.x + "," + y + "," + this.direction;
     }
 
     public void move(int offset) {
@@ -17,9 +17,15 @@ public class Rover {
 
     public void turn(Orientation orientation) {
         if (orientation == LEFT) {
-            this.orientation = "W";
+            if (this.direction.equals("N")) {
+                this.direction = "W";
+            }
         } else {
-            this.orientation = "E";
+            if (this.direction.equals("N")) {
+                this.direction = "E";
+            } else if (this.direction.equals("E")) {
+                this.direction = "S";
+            }
         }
     }
 }

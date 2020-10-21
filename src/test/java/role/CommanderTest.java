@@ -37,4 +37,11 @@ public class CommanderTest {
         String position = commander.send(Arrays.asList(new TurnRightCommand()));
         assertThat(position).isEqualTo("0,0,E");
     }
+
+    @Test
+    public void 发送指令_连续右转() {
+        Commander commander = new Commander();
+        String position = commander.send(Arrays.asList(new TurnRightCommand(), new TurnRightCommand()));
+        assertThat(position).isEqualTo("0,0,S");
+    }
 }
