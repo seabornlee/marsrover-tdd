@@ -14,4 +14,11 @@ public class CommandParserTest {
         assertThat(commands).hasSize(1);
         assertThat(commands.get(0)).isInstanceOf(MoveForwardCommand.class);
     }
+
+    @Test
+    public void parse_后退一步() {
+        List<Command> commands = CommandParser.parse("B");
+        assertThat(commands).hasSize(1);
+        assertThat(commands.get(0)).isInstanceOf(MoveBackCommand.class);
+    }
 }
