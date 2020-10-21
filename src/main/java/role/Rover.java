@@ -10,7 +10,7 @@ public class Rover {
     }
 
     public void move(int offset) {
-        this.y++;
+        this.y = this.y + offset;
     }
 
     public void turn(Orientation orientation) {
